@@ -93,7 +93,7 @@ const About = ({ scrollToSection }) => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="/resume.pdf"
+                  href="/Professional CV Resume.pdf"
                   download
                   className="bg-green-500 hover:bg-green-400 text-black font-semibold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg hover:scale-105 text-center"
                 >
