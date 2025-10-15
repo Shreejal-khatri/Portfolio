@@ -9,8 +9,8 @@ const Footer = () => {
   const toggleTermsModal = () => setShowTermsModal(!showTermsModal);
 
   const technologies = [
-    'React', 'Next.js', 'Node.js', 'TypeScript', 
-    'Tailwind CSS', 'MongoDB', 'Express', 'Python'
+    'React', 'Next.js', 'Node.js', 'TypeScript', 'JavaScript',
+     'MongoDB', 'Express', 'Python'  , 'Java'
   ];
 
   const cloudinaryLogoUrl = "https://res.cloudinary.com/dzrfxgqb6/image/upload/v1753606877/SK.logo_kmomhl.png";

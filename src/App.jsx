@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
+import ProfessionalCertificate from './components/ProfessionalCertificate'; 
 import Education from './components/Education';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
@@ -20,7 +21,7 @@ const MainPage = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'education', 'projects', 'contact'];
+      const sections = ['home', 'about', 'skills', 'certificates', 'education', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       sections.forEach(section => {
@@ -46,6 +47,12 @@ const MainPage = () => {
       <Hero scrollToSection={scrollToSection} />
       <About />
       <Skills />
+      
+      {/* ✅ Added ProfessionalCertificate section here */}
+      <section id="certificates">
+        <ProfessionalCertificate />
+      </section>
+
       <Education />
       <Projects />
       <Contact />

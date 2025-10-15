@@ -1,5 +1,4 @@
 import React from 'react';
-import { Code, Cpu, Database, GitBranch } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Skills = () => {
@@ -18,141 +17,97 @@ const Skills = () => {
     design: 'https://res.cloudinary.com/dzrfxgqb6/image/upload/v1753604610/figma_nvpi0j.png'
   };
 
-  const skillsCategories = [
+  const skillsData = [
     {
-      title: "Core Technologies",
-      icon: Cpu,
+      category: "Programming Languages",
       skills: [
-        { name: "Node.js", level: 90, logo: skillLogos.nodejs },
-        { name: "Express.js", level: 88, logo: skillLogos.express },
-        { name: "Java", level: 85, logo: skillLogos.java },
-        { name: "C Programming", level: 80, logo: skillLogos.c },
-        { name: "Python", level: 85, logo: skillLogos.python }
-      ],
-      color: "text-blue-400",
-      barColor: "bg-blue-400"
+        { name: "Java", logo: skillLogos.java },
+        { name: "Python", logo: skillLogos.python },
+        { name: "C Programming", logo: skillLogos.c },
+        { name: "JavaScript", logo: skillLogos.express }
+      ]
     },
     {
-      title: "Frontend & Databases",
-      icon: Database,
+      category: "Web Development",
       skills: [
-        { name: "React", level: 90, logo: skillLogos.react },
-        { name: "MongoDB", level: 85, logo: skillLogos.mongodb },
-        { name: "SQL", level: 80, logo: skillLogos.sql },
-        { name: "Figma", level: 75, logo: skillLogos.figma },
-        { name: "UI/UX Design", level: 85, logo: skillLogos.design }
-      ],
-      color: "text-green-400",
-      barColor: "bg-green-400"
+        { name: "Node.js", logo: skillLogos.nodejs },
+        { name: "Express.js", logo: skillLogos.express },
+        { name: "React", logo: skillLogos.react },
+        { name: "MongoDB", logo: skillLogos.mongodb }
+      ]
     },
     {
-      title: "Professional Skills",
-      icon: GitBranch,
+      category: "Design & Database",
       skills: [
-        { name: "Team Collaboration", level: 95, logo: skillLogos.teamwork },
-        { name: "Report Writing", level: 90, logo: skillLogos.writing },
-        { name: "Technical Documentation", level: 85, logo: skillLogos.writing },
-        { name: "Agile Methodology", level: 80, logo: skillLogos.teamwork },
-        { name: "Problem Solving", level: 90, logo: skillLogos.teamwork }
-      ],
-      color: "text-purple-400",
-      barColor: "bg-purple-400"
+        { name: "SQL", logo: skillLogos.sql },
+        { name: "Figma", logo: skillLogos.figma },
+        { name: "UI/UX Design", logo: skillLogos.design }
+      ]
+    },
+    {
+      category: "Professional Skills",
+      skills: [
+        { name: "Team Collaboration", logo: skillLogos.teamwork },
+        { name: "Technical Writing", logo: skillLogos.writing },
+        { name: "Problem Solving", logo: skillLogos.teamwork }
+      ]
     }
   ];
 
   return (
-    <section id="skills" className="py-20 px-4 bg-gray-900">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold text-center mb-16 text-green-400">
-          Technical & Professional Skills
-        </h2>
+    <section id="skills" className="py-24 px-6 bg-gradient-to-b from-gray-900 to-gray-800">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Skills & Expertise
+          </h2>
+          <div className="w-20 h-1 bg-green-400 mx-auto"></div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillsCategories.map((category, index) => (
+        <div className="space-y-16">
+          {skillsData.map((section, sectionIndex) => (
             <motion.div
-              key={index}
-              className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-green-400 transition-all duration-300 hover:scale-[1.02] group"
-              initial={{ opacity: 0, y: 20 }}
+              key={sectionIndex}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.6, ease: 'easeOut' }}
+              transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
             >
-              <div className={`flex items-center mb-6 ${category.color}`}>
-                <div className="p-3 bg-gray-700 rounded-lg mr-4 group-hover:bg-opacity-80 transition-all">
-                  <category.icon size={24} />
-                </div>
-                <h3 className="text-xl font-bold">{category.title}</h3>
-              </div>
-
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
+              <h3 className="text-2xl font-semibold text-gray-300 mb-8 pb-3 border-b border-gray-700">
+                {section.category}
+              </h3>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                {section.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skillIndex}
-                    className="skill-item"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: skillIndex * 0.1, duration: 0.5 }}
+                    transition={{ duration: 0.4, delay: skillIndex * 0.05 }}
+                    className="group"
                   >
-                    <div className="flex items-center justify-between mb-1">
-                      <div className="flex items-center">
-                        {skill.logo ? (
-                          <img
-                            src={skill.logo}
-                            alt={skill.name}
-                            className="w-6 h-6 mr-2 object-contain"
-                          />
-                        ) : (
-                          <div className="w-6 h-6 mr-2 flex items-center justify-center">
-                            <Code size={16} className={category.color} />
-                          </div>
-                        )}
-                        <span className="text-gray-300 font-medium">{skill.name}</span>
+                    <div className="bg-gray-800 rounded-lg p-6 h-full flex flex-col items-center justify-center border border-gray-700 hover:border-green-400 transition-all duration-300 hover:shadow-lg hover:shadow-green-400/10">
+                      <div className="w-16 h-16 mb-4 flex items-center justify-center">
+                        <img
+                          src={skill.logo}
+                          alt={skill.name}
+                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                        />
                       </div>
-                      <span className="text-gray-400 text-sm">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-700 rounded-full h-2.5">
-                      <div
-                        className={`h-2.5 rounded-full ${category.barColor}`}
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
+                      <p className="text-gray-300 text-center text-sm font-medium">
+                        {skill.name}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {[
-            { name: "Node.js", logo: skillLogos.nodejs },
-            { name: "Express.js", logo: skillLogos.express },
-            { name: "Java", logo: skillLogos.java },
-            { name: "Python", logo: skillLogos.python },
-            { name: "React", logo: skillLogos.react },
-            { name: "MongoDB", logo: skillLogos.mongodb },
-            { name: "SQL", logo: skillLogos.sql },
-            { name: "Figma", logo: skillLogos.figma },
-            { name: "Teamwork", logo: skillLogos.teamwork },
-            { name: "Report Writing", logo: skillLogos.writing },
-            { name: "C Programming", logo: skillLogos.c },
-            { name: "UI/UX Design", logo: skillLogos.design }
-          ].map((tech, index) => (
-            <motion.div
-              key={index}
-              className="flex flex-col items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-green-400 transition-all hover:scale-105"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05, duration: 0.4 }}
-            >
-              <img
-                src={tech.logo}
-                alt={tech.name}
-                className="w-12 h-12 mb-2 object-contain"
-              />
-              <span className="text-gray-300 text-center text-sm">{tech.name}</span>
             </motion.div>
           ))}
         </div>

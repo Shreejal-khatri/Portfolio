@@ -5,7 +5,8 @@ const Navbar = ({ activeSection, scrollToSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const sections = ['home', 'about', 'skills', 'education', 'projects', 'contact'];
+ 
+  const sections = ['home', 'about', 'skills', 'certificates', 'education', 'projects', 'contact'];
 
   useEffect(() => {
     const handleScroll = () => {
